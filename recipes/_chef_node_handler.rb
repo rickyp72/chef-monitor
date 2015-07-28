@@ -43,7 +43,7 @@ include_recipe 'monitor::_filters'
 
 sensu_handler 'chef_node' do
   type 'pipe'
-  command 'sudo handler-chef-node.rb'
+  command 'sudo /opt/sensu/embedded/bin/handler-chef-node.rb'
   filters ['keepalives']
   severities %w(warning critical)
 end
