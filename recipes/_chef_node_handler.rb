@@ -46,4 +46,5 @@ sensu_handler 'chef_node' do
   command 'sudo /opt/sensu/embedded/bin/handler-chef-node.rb'
   filters ['keepalives']
   severities %w(warning critical)
+  timeout ['monitor']['default_handler_timeout']
 end
