@@ -68,7 +68,7 @@ sensu_check 'fs_writeable_tmp' do
 end
 
 # sensu_check 'chef_client' do
-#  command 'check-chef-client.rb'
+#  command 'check-process.rb -u root -p chef-client'
 #  handlers ['default']
 #  interval node['monitor']['default_interval']
 #  subscribers ['linux']
