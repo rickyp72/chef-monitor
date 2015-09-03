@@ -30,6 +30,11 @@ default['monitor']['metric_occurrences'] = 2
 default['monitor']['client_extension_dir'] = '/etc/sensu/extensions/client'
 default['monitor']['server_extension_dir'] = '/etc/sensu/extensions/server'
 
+default['monitor']['handlers']['slack']['webhook_url'] = nil
+default['monitor']['handlers']['slack']['channel'] = nil
+default['monitor']['handlers']['slack']['bot_name'] = nil
+default['monitor']['handlers']['slack']['fields'] = []
+
 # grpahite scheme
 default['monitor']['scheme_prefix'] = 'sensu.default.'
 # remedy defaults
