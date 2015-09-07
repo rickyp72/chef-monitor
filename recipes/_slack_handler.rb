@@ -19,6 +19,5 @@ end
 sensu_handler 'slack' do
   type 'pipe'
   command 'handler-slack.rb'
-  severities %w(warning critical)
   timeout node['monitor']['default_handler_timeout']
 end
