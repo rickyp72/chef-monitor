@@ -41,7 +41,8 @@ if node.key?('ec2')
 
     client_attributes[key] = node['ec2'][id]
   end
-
+  region = node['ec2']['placement_availability_zone'][0..-2]
+  client_attributes['aws_management_console'] = "https://#{region}.console.aws.amazon.com/ec2/v2/home?region=#{region}#Instances:search=#{node['ec2']['instance_id']};sort=Name"
 end
 
 if node.key?('cloud')
@@ -49,6 +50,7 @@ if node.key?('cloud')
     local_ipv4
     public_ipv4
     provider
+    public_hostname
   ).each do |id|
     key = "cloud_#{id}"
 
