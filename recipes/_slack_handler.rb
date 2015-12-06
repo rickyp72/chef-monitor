@@ -4,7 +4,15 @@
 #
 
 sensu_gem 'sensu-plugins-slack' do
-  version '0.0.4'
+  version '0.1.0'
+end
+
+cookbook_file '/tmp/slack.erb' do
+  source 'slack.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create
 end
 
 sensu_snippet 'slack' do
@@ -12,7 +20,8 @@ sensu_snippet 'slack' do
     webhook_url: node['monitor']['handlers']['slack']['webhook_url'],
     channel: node['monitor']['handlers']['slack']['channel'],
     bot_name: node['monitor']['handlers']['slack']['bot_name'],
-    fields: node['monitor']['handlers']['slack']['fields']
+    fields: node['monitor']['handlers']['slack']['fields'],
+    template: '/tmp/slack.erb'
   )
 end
 
