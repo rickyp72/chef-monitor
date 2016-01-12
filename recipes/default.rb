@@ -68,6 +68,12 @@ end
   client_attributes[key] = node[key] if node.key?(key)
 end
 
+match = node.name.match(/^([a-z\-0-9]+)([0-9]*)\..*$/)
+if match
+  instance_name, instance_index = match.captures
+  client_attributes['chef_short_name'] = "#{instance_name}#{instance_index}"
+end
+
 %w(
   scheme_prefix
   remedy_app
