@@ -4,7 +4,7 @@
 #
 
 sensu_gem 'sensu-plugins-slack' do
-  version '0.1.0'
+  version '0.1.1'
 end
 
 cookbook_file '/tmp/slack.erb' do
