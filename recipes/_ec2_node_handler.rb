@@ -23,10 +23,16 @@ end
 
 include_recipe 'monitor::_filters'
 
-sensu_handler 'chef_node' do
+sensu_snippet 'ec2_node' do
+  content(
+    ec2_states: node['monitor']['ec2_states']
+  )
+end
+
+sensu_handler 'ec2_node' do
   type 'pipe'
   command 'handler-ec2_node.rb'
-  filters ['keepalives']
+  filters %w(keepalives ec2)
   severities %w(warning critical)
   timeout node['monitor']['default_handler_timeout']
 end
