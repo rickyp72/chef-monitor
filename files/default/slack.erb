@@ -1,7 +1,7 @@
 <%= @event['check']['output'] %>
 Host: <%= @event['client']['name'] %>
 Region: <%= @event['client']['ec2_region'] %>
-Link: <%= @event['client']['uchiwa_base_url'] %>/#/client/Sensu/<%= @event['client']['name'] %>?check=<%= @event['check']['name'] %>
+Link: <%= @event['client']['uchiwa_base_url'] %>/#/client/<%= @event['client']['ec2_region'] %>/<%= @event['client']['name'] %>?check=<%= @event['check']['name'] %>
 Timestamp: <%= Time.at(@event['check']['issued']) %>
 Address:  <%= @event['client']['address'] %>
 Check Name: <%= @event['check']['name'] %>
